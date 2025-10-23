@@ -6,17 +6,17 @@ else:
     print("Кондиционер включен")
 # 2 Задание
 inp2 = int(input("Введите номер месяца: "))
-if inp2 == 1 or inp2 == 2 or inp2 == 12:
+if inp2 in [1, 2, 12]:
     print("Это зима")
-if inp2 == 3 or inp2 == 4 or inp2 == 5:
+if inp2 in [3, 4, 5]:
     print("Это весна")
-if inp2 == 6 or inp2 == 7 or inp2 == 8:
+if inp2 in [6, 7, 8]:
     print("Это лето")
-if inp2 == 9 or inp2 == 10 or inp2 == 11:
+if inp2 in [9, 10, 11]:
     print("Это осень")
 # 3 Задание
-inp3 = input("Введите возраст собаки (в годах): ")
 try:
+    inp3 = input("Введите возраст собаки (в годах): ")
     if int(inp3) == 1:
         print("Возраст собаки в человеческих годах: 10.5")
     elif int(inp3) > 1 and int(inp3) <= 22:
@@ -24,10 +24,8 @@ try:
         print("Возраст собаки в человеческих годах:", age3)
     elif int(inp3) < 1:
         print("Ошибка: число должно быть не меньше 1")
-    elif int(inp3) > 22:
-        print("Ошибка: число должно быть не больше 22")
     else:
-        print("Ошибка: введите число")
+        print("Ошибка: число должно быть не больше 22")
 except ValueError:
     print("Ошибка: введите число")
 # Задание 4
@@ -41,16 +39,16 @@ else:
     print("Введённое число не делится на 3")
 # Задание 5
 inp5 = input("Введите пароль: ")
-errors = []
-if len(inp5) < 8: errors.append("длина менее 8 символов")
-if not any(c.isupper() for c in inp5): errors.append("отсутствуют заглавные буквы")
-if not any(c.islower() for c in inp5): errors.append("отсутствуют строчные буквы")
-if not any(c.isdigit() for c in inp5): errors.append("отсутствуют числа")
-if not any(c in "!@#$%^&*()_+-=[]{}|;:,.<>?`~" for c in inp5): errors.append("отсутствуют специальные символы")
-if errors:
-    print("Пароль ненадежный: ", ", ".join(errors))
+err = []
+if len(inp5) < 8: err.append("длина менее 8 символов")
+if not any(c.isupper() for c in inp5): err.append("отсутствуют заглавные буквы")
+if not any(c.islower() for c in inp5): err.append("отсутствуют строчные буквы")
+if not any(c.isdigit() for c in inp5): err.append("отсутствуют числа")
+if not any(c in "!@#$%^&*()_+-=[]{}|;:,.<>?`~" for c in inp5): err.append("отсутствуют специальные символы")
+if err:
+    print("Пароль ненадежный:", ", ".join(err))
 else:
-    print("Пароль надежный!")
+    print("Пароль надежный")
 # Задание 6
 inp6 = int(input("Введите год: "))
 if (inp6 % 4 == 0 and inp6 % 100 != 0) or (inp6 % 400 == 0):
@@ -91,5 +89,19 @@ if inp9 >= 12 and inp9 <= 17:
 if inp9 >= 18 and inp9 <= 23:
     print("Сейчас вечер")
 # Задание 10
+try:
+    m = []
+    inp10 = input("Введите целое число: ")
+    for x in range(2, int(inp10)):
+        if int(inp10) % x == 0:
+            m.append(x)
+        if len(m) > 0:
+            print(int(inp10), "- составное число")
+            break
+    if len(m) == 0:
+        print(int(inp10), "- простое число")
+except ValueError:
+    print("Нужно ввести целое число!")
+
 
 
