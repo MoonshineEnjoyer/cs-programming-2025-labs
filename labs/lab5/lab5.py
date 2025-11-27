@@ -33,3 +33,45 @@ minstr5 = min(task5, key=task5.get)
 minint5 = task5[minstr5]
 print("Самый дорогой предмет:", maxstr5, "-", maxint5)
 print("Самый дешёвый предмет:", minstr5, "-", minint5)
+# 8 Задание
+import random
+
+inp8list = ["камень", "ножницы", "бумага", "ящерица", "спок"]
+rules8 = {
+    "камень": ["ножницы", "ящерица"],
+    "ножницы": ["бумага", "ящерица"],
+    "бумага": ["камень", "спок"],
+    "ящерица": ["спок", "бумага"],
+    "спок": ["ножницы", "камень"],
+}
+inp8 = input("Введите свой выбор: 'камень', 'ножницы', 'бумага', 'ящерица', 'спок': ")
+randinp8 = random.choice(inp8list)
+if inp8 == randinp8:
+    print("Ничья. Ваш выбор: ", inp8, "; выбор компьютера: ", randinp8, sep="")
+elif randinp8 in rules8[inp8]:
+    print("Вы победили. Ваш выбор: ", inp8, "; выбор компьютера: ", randinp8, sep="")
+else:
+    print("Вы проиграли. Ваш выбор: ", inp8, "; выбор компьютера: ", randinp8, sep="")
+# 9 Задание
+list9 = ["яблоко", "груша", "банан", "киви", "апельсин", "ананас"]
+dict9 = {}
+for a9 in list9:
+    letter9 = a9[:1]
+    if letter9 not in dict9:
+        dict9[letter9] = []
+    dict9[letter9].append(a9)
+print(dict9)
+# 10 Задание
+task10 = [
+    ("Анна", [5, 4, 5, 4, 3]),
+    ("Иван", [3, 4, 4, 2, 5]),
+    ("Мария", [5, 3, 5, 2, 4]),
+]
+dict10 = {}
+for tpls10 in task10:
+    name10 = tpls10[0]
+    marks10 = tpls10[1]
+    avgmarks10 = sum(marks10) / len(marks10)
+    dict10[name10] = avgmarks10
+    highmarks10 = max(dict10, key=dict10.get)
+print(highmarks10, "имеет наивысший средний балл:", dict10[highmarks10])
