@@ -38,11 +38,15 @@ task6 = ['a', 'b', 'c', 'd', 'e']
 task6dict = {key: key for key in task6}
 print(task6dict)
 # 7 Задание
-task7 = {'Ассистент': 'Assistant', 'Станция': 'Station', 'Клоун': 'Clown', 'Предатель': 'Traitor'}
+task7 = {'Assistant': 'Ассистент', 'Станция': 'Station', 'Clown': 'Клоун', 'Traitor': 'Предатель'}
 inp7 = input('Введите слово на русском с большой буквы для перевода на английский: ')
-if inp7 in task7:
-    print('Перевод', inp7, 'на английский -', task7[inp7])
-else:
+found = False
+for key, value in task7.items():
+    if inp7 == value:
+        print('Перевод', inp7, 'на русский -', key)
+        found = True
+        break
+if not found:
     print('К сожалению, перевода для данного слова нет!')
 # 8 Задание
 import random
