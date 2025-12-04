@@ -33,6 +33,17 @@ minstr5 = min(task5, key=task5.get)
 minint5 = task5[minstr5]
 print("Самый дорогой предмет:", maxstr5, "-", maxint5)
 print("Самый дешёвый предмет:", minstr5, "-", minint5)
+# 6 Задание
+task6 = ['a', 'b', 'c', 'd', 'e']
+task6dict = {key: key for key in task6}
+print(task6dict)
+# 7 Задание
+task7 = {'Ассистент': 'Assistant', 'Станция': 'Station', 'Клоун': 'Clown', 'Предатель': 'Traitor'}
+inp7 = input('Введите слово на русском с большой буквы для перевода на английский: ')
+if inp7 in task7:
+    print('Перевод', inp7, 'на английский -', task7[inp7])
+else:
+    print('К сожалению, перевода для данного слова нет!')
 # 8 Задание
 import random
 
